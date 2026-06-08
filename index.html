@@ -1,160 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mideara Network | Elevating Digital Potential</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mideara Network — Bridging Creativity & Innovation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-700 tracking-tighter">
-                MIDEARA<span class="text-gray-400">NETWORK</span>
-            </div>
-            <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#home" class="hover:text-blue-600 transition">Home</a>
-                <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                <a href="#portfolio" class="hover:text-blue-600 transition">Portfolio</a>
-                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Work With Us</a>
-            </div>
-        </div>
-    </nav>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-white space-y-6">
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
-                    Innovating the <span class="text-blue-400">Digital</span> Landscape.
-                </h1>
-                <p class="text-lg text-gray-300 max-w-lg">
-                    Mideara Network empowers businesses with cutting-edge technology, strategic marketing, and scalable IT solutions designed for the modern era.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#services" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition">View Services</a>
-                    <a href="#portfolio" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition">Our Work</a>
-                </div>
-            </div>
-            <div class="hidden md:block relative">
-                <div class="absolute -inset-4 bg-blue-500/20 blur-3xl rounded-full"></div>
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" alt="Tech Dashboard" class="relative rounded-2xl shadow-2xl border border-white/10">
-            </div>
-        </div>
-    </section>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="data:image/jpeg;base64,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" alt="Mideara Logo"/>
+    Mideara<span style="color:var(--accent)"> Network</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch ↗</a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <!-- Stats Section -->
-    <section class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div><p class="text-4xl font-bold text-blue-600">150+</p><p class="text-gray-500">Projects Delivered</p></div>
-                <div><p class="text-4xl font-bold text-blue-600">50+</p><p class="text-gray-500">Global Clients</p></div>
-                <div><p class="text-4xl font-bold text-blue-600">99%</p><p class="text-gray-500">Client Retention</p></div>
-                <div><p class="text-4xl font-bold text-blue-600">24/7</p><p class="text-gray-500">Expert Support</p></div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span>Pune's Creative Powerhouse</div>
+    <h1 class="hero-title">
+      <em>From the people,</em><br/>
+      <span class="stroke">For the people</span>
+    </h1>
+    <p class="hero-sub">
+      Mideara Network is a versatile production & networking firm in Pune — delivering graphic design, video, web, and ed-tech solutions that elevate your brand.
+    </p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary">
+        View Our Work
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2 8H14M9 3L14 8L9 13" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a href="#contact" class="btn-ghost">Start a Project</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Core Expertise</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">We provide a full suite of digital solutions to help your business scale in an ever-changing market.</p>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group">
-                <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-                    <i class="fa-solid fa-laptop-code text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Software Development</h3>
-                <p class="text-gray-600">Custom web and mobile applications tailored to your business needs and user experience.</p>
-            </div>
-            <!-- Service 2 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group">
-                <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-                    <i class="fa-solid fa-chart-line text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Digital Marketing</h3>
-                <p class="text-gray-600">Data-driven strategies to grow your brand presence and increase conversion rates effectively.</p>
-            </div>
-            <!-- Service 3 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group">
-                <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-                    <i class="fa-solid fa-shield-halved text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">IT Consulting</h3>
-                <p class="text-gray-600">Expert advice on infrastructure, cloud migration, and cybersecurity to protect your assets.</p>
-            </div>
-        </div>
-    </section>
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label reveal">What We Do</div>
+      <h2 class="section-title reveal">Services Built<br>to <em style="color:var(--accent)">Elevate</em> You</h2>
+    </div>
+    <p class="section-sub reveal">From pixel-perfect visuals to immersive digital experiences — we cover the full spectrum of creative production.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Graphic Designing</div>
+      <p class="service-desc">Transforming ideas into captivating visual narratives that leave a lasting impression across all media.</p>
+      <span class="service-tag">Branding & Identity</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🎥</div>
+      <div class="service-name">Video Editing</div>
+      <p class="service-desc">Precision and flair come together to bring your stories to life through seamless video production.</p>
+      <span class="service-tag">Motion & Film</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🌐</div>
+      <div class="service-name">Web Design & Dev</div>
+      <p class="service-desc">Crafting immersive online experiences that resonate with your audience and drive real engagement.</p>
+      <span class="service-tag">Frontend & Backend</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📊</div>
+      <div class="service-name">Market Analysis</div>
+      <p class="service-desc">Data-driven insights to navigate the dynamic business landscape and make informed strategic decisions.</p>
+      <span class="service-tag">Research & Strategy</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📚</div>
+      <div class="service-name">Ed-Tech Solutions</div>
+      <p class="service-desc">Empowering learning through innovative educational technology — platforms that inspire and connect.</p>
+      <span class="service-tag">Learning & Growth</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🤝</div>
+      <div class="service-name">Brand Networking</div>
+      <p class="service-desc">Connecting businesses with the right partners, platforms, and communities to amplify their reach and impact.</p>
+      <span class="service-tag">Growth & Outreach</span>
+    </div>
+  </div>
+</section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Featured Projects</h2>
-                    <p class="text-gray-600">A glimpse into the success stories we've built.</p>
-                </div>
-                <button class="text-blue-600 font-semibold flex items-center">View All <i class="fa-solid fa-arrow-right ml-2"></i></button>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="relative overflow-hidden rounded-2xl group">
-                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80" class="w-full h-80 object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                        <div>
-                            <span class="text-blue-400 text-sm font-bold tracking-widest uppercase">FinTech</span>
-                            <h4 class="text-white text-2xl font-bold">Banking App Redesign</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-2xl group">
-                    <img src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80" class="w-full h-80 object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                        <div>
-                            <span class="text-blue-400 text-sm font-bold tracking-widest uppercase">E-Commerce</span>
-                            <h4 class="text-white text-2xl font-bold">Global Logistics Platform</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- MARQUEE -->
+<div id="about">
+  <div class="marquee-track" aria-hidden="true">
+    <div class="marquee-inner">
+      <span>Graphic Design</span><span>Video Production</span><span>Web Development</span>
+      <span>Market Research</span><span>Ed-Tech</span><span>Brand Strategy</span>
+      <span>UI/UX Design</span><span>Brand Networking</span>
+      <span>Graphic Design</span><span>Video Production</span><span>Web Development</span>
+      <span>Market Research</span><span>Ed-Tech</span><span>Brand Strategy</span>
+      <span>UI/UX Design</span><span>Brand Networking</span>
+    </div>
+  </div>
+</div>
 
-    <!-- Contact CTA -->
-    <section id="contact" class="py-20 bg-blue-600">
-        <div class="max-w-4xl mx-auto px-6 text-center text-white">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to scale your business?</h2>
-            <p class="text-xl text-blue-100 mb-10">Join Mideara Network and let's build something extraordinary together.</p>
-            <div class="bg-white p-2 rounded-lg flex flex-col md:flex-row gap-2">
-                <input type="email" placeholder="Enter your business email" class="flex-1 px-4 py-3 rounded-md text-gray-900 focus:outline-none">
-                <button class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-md font-bold transition">Get Started</button>
-            </div>
-        </div>
-    </section>
+<!-- ABOUT CONTENT -->
+<div class="about-content">
+  <div class="about-left">
+    <div class="section-label reveal">Our Story</div>
+    <h2 class="section-title reveal">More Than an<br><em style="color:var(--accent)">Agency</em></h2>
+    <p class="section-sub reveal" style="margin-bottom: 20px;">
+      Founded in Pune, Mideara Network is where creativity meets cutting-edge technology. We don't just deliver services — we build partnerships that transform businesses.
+    </p>
+    <ul class="about-points">
+      <li class="reveal">Headquartered in Akurdi-Chinchwad, Pune — the Silicon Valley of Maharashtra</li>
+      <li class="reveal">A full-spectrum creative & production studio under one roof</li>
+      <li class="reveal">Client-first approach with transparent, result-driven workflows</li>
+      <li class="reveal">Combining creative intuition with data-backed decision making</li>
+    </ul>
+  </div>
+  <div class="about-visual reveal">
+    <div class="about-card">
+      <div class="big-quote">"</div>
+      <p class="about-quote">Boundless creativity meets cutting-edge innovation — every project is a new adventure.</p>
+      <p class="about-attr">— Mideara Network Team</p>
+    </div>
+    <div class="about-float">
+      <strong>100%</strong>
+      Client Satisfaction
+    </div>
+  </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-xl font-bold text-blue-700">MIDEARA</div>
-            <p class="text-gray-500 text-sm">© 2024 Mideara Network. All rights reserved.</p>
-            <div class="flex space-x-6 text-gray-400">
-                <a href="#" class="hover:text-blue-600"><i class="fa-brands fa-linkedin text-xl"></i></a>
-                <a href="#" class="hover:text-blue-600"><i class="fa-brands fa-twitter text-xl"></i></a>
-                <a href="#" class="hover:text-blue-600"><i class="fa-brands fa-instagram text-xl"></i></a>
-            </div>
-        </div>
-    </footer>
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-label reveal">Featured Work</div>
+      <h2 class="section-title reveal">Projects We're<br>Proud Of</h2>
+    </div>
+    <a href="#contact" class="btn-ghost reveal" style="white-space:nowrap">See All Work ↗</a>
+  </div>
+  <div class="portfolio-grid">
+    <div class="port-card reveal">
+      <div class="port-cat">Web Development</div>
+      <div class="port-title">E-Commerce Platform</div>
+      <p class="port-desc">A fully responsive online store with seamless UX and integrated payment gateway for a Pune-based retailer.</p>
+      <div class="port-img">
+        <div class="port-img-bg"></div>🌐
+      </div>
+    </div>
+    <div class="port-card reveal">
+      <div class="port-cat">Graphic Design</div>
+      <div class="port-title">Brand Identity System</div>
+      <p class="port-desc">End-to-end visual identity — logo, typography, brand guidelines and social kit for a growing startup.</p>
+      <div class="port-img">
+        <div class="port-img-bg"></div>🎨
+      </div>
+    </div>
+    <div class="port-card reveal">
+      <div class="port-cat">Video Production</div>
+      <div class="port-title">Product Launch Film</div>
+      <p class="port-desc">30-second hero video for a startup's product launch campaign — scripted, shot & edited in-house.</p>
+      <div class="port-img">
+        <div class="port-img-bg"></div>🎬
+      </div>
+    </div>
+    <div class="port-card reveal">
+      <div class="port-cat">Ed-Tech</div>
+      <div class="port-title">Learning Management System</div>
+      <p class="port-desc">Custom LMS for a coaching institute — with live sessions, course management, and analytics dashboard for hundreds of students.</p>
+      <div class="port-img">
+        <div class="port-img-bg"></div>📚
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- PROCESS -->
+<section id="process">
+  <div style="text-align:center; max-width:600px; margin: 0 auto;">
+    <div class="section-label reveal" style="justify-content:center;">How We Work</div>
+    <h2 class="section-title reveal">Our 4-Step<br><em style="color:var(--accent)">Process</em></h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="step-num-wrap">01</div>
+      <div class="step-title">Discovery</div>
+      <p class="step-desc">We listen first. Understanding your goals, audience, and brand personality before anything else.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num-wrap">02</div>
+      <div class="step-title">Strategy</div>
+      <p class="step-desc">Data-backed planning and creative direction — a clear roadmap before we touch any tools.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num-wrap">03</div>
+      <div class="step-title">Creation</div>
+      <p class="step-desc">Our designers, developers and editors bring the vision to life with craft and attention to detail.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num-wrap">04</div>
+      <div class="step-title">Launch & Grow</div>
+      <p class="step-desc">We deliver, measure impact and stay on hand to iterate — because great work doesn't stop at launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal" style="margin-bottom: 16px;">Let's Connect</div>
+  <h2 class="section-title reveal" style="margin-bottom: 60px;">Ready to Build<br><em style="color:var(--accent)">Something Great?</em></h2>
+  <div class="contact-inner reveal">
+    <div class="contact-left">
+      <h3 style="font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:800; margin-bottom: 12px; color:var(--text);">Get in Touch</h3>
+      <p style="color:var(--muted); font-size:0.95rem; line-height:1.75;">Whether you have a project in mind or just want to explore possibilities — we'd love to hear from you.</p>
+      <ul class="contact-info-list">
+        <li>
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-val">Office No. 63–64, 2nd Floor, Tapaswi Plaza, Akurdi–Chinchwad, Pune 411026</div>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon">🌐</div>
+          <div>
+            <div class="info-label">Online</div>
+            <div class="info-val">linkedin.com/company/mideara-network</div>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon">🏙️</div>
+          <div>
+            <div class="info-label">City</div>
+            <div class="info-val">Pune, Maharashtra, India</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-right">
+      <h3 style="font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800; margin-bottom:32px; color:var(--text);">Send a Message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Rohan"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Desai"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="rohan@company.com"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service Interested In</label>
+        <select class="form-input" style="appearance:none;">
+          <option value="">Select a service...</option>
+          <option>Graphic Designing</option>
+          <option>Video Editing</option>
+          <option>Web Design & Development</option>
+          <option>Market Analysis</option>
+          <option>Ed-Tech Solutions</option>
+          <option>Brand Networking</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Message</label>
+        <textarea class="form-input" placeholder="Tell us about your project..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit(this)">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADIAMgDASIAAhEBAxEB/8QAHQAAAgMBAAMBAAAAAAAAAAAAAAQCAwUBBwgJBv/EAD4QAAEDBAAFAgMFAwoHAAAAAAEAAgMEESExBQZBUWEHkXGBoQgSscHREzJCFCJDU2KVs+Hw8RUkN0ZWc4T/xAAbAQACAgMBAAAAAAAAAAAAAAADBQIEAAEGB//EACgRAAICAgAGAQQDAQAAAAAAAAABAgMEEQUSITFBURMGFGFxIoHwof/aAAwDAQACEQMRAD8A9OgEIQmaQIF3aAF1TSMBAQAujCkkaAIQpDClow4ApAeyAL79lMC5U4x2RbOAKQGV1oVgaeqsRiQbIgdN+FMNzlSaO21Y1qswiQbOBuPyVjW3susZlXsZdXKqWwcpaIMZ3CubGeymxl1c1nhMqcb8ApSKmRhWtZjSuYy/TKtZH4TKrG/AKUhdsZvpTERKabH4VrYvCvwxdgpTExD4QYfCfEPWyP2N+isLD2uxH5DNdFcaQtAwHshCeF17GfIePSEAI2gaXkqQ+OoQuhSSNAAhdG10YUkjWzgCkB7oA6qTRlEjE02dCmB/kgBTDVYhDRBsGhTa3pZda3QU2jsrMYEHLYNarWMufzQxudYV7GeFepp2ClIGM0rmM8KTGeFcxmLprTR2AykDGeFcxikyMdkxHGOybU0bASkQZHfor2RKxkZxhMsjv0umlOP+AMpFLIhfStZF4TEcV+iZjpyeiZV0JAZTSEhCe11IQ36LUZS3ANrq9lHcfu/RWFTFdwLvSMN0HS10LddRgjSFv4YkfnR4OC6hAXgCR1x0IQujSkka2A7qQHVAF1IYRYx2R2dAUwFxowD1UwLI8YEWzoCm0f5LjRcq0DStQgDbBrc+Vaxvb3Qxvsr2N8YCu00tsHKWgYzxZMMZYaXGN1/qyvY2+LJtTSBlIGNyEzGzwuRsTMTNGyb0UAJSOxx6TEbPC7FHpMxR3Gk2poAykcjjv0wm4YSSLD5qUEN7G3utKmp8jCZ11pIq2WJIpgptYT8NLgY+SZp6cC1hlaEFPaxIytytUV0F9tzEoqXGrJhlN4WjFT4GMJuOlwLBVJZGvJTleYppcaKFvilNv3UIf3P5B/cHqiuoC6F4okeksApAdUAXUgCpxjsiwAUgEBTAt8VZjEi2dA91NrVxoz4VrRlWYRINnWtVjG538VxjVextrW9ldpq29gpSOsbrp+SvY0C2FxjfCvY1NqaQMpEo26wr42ZC5G3SYiYm9FIGUiUTNJmJlyMLkTMjCaiZpNqKQEpbJRMvaybgivY2wowR3IC06SG/T6JpXWktlayeiVLBe2Fq00GhZRpYdAC61KaHWFq2xJaQsuuCnp8AAZ+C0YKe1rhSpoLAXFytKCDIIFyll14tttKYafWLpyKlJtYJumpr2uFow01x+7tLbcnRUlJsy20uMhC3WUhI0hVfufyR0z0ZUgFwBTAsvOVHZ6yAGlMBACkArEIkWwH1VjQD8FwN6Kxot0z0VqMQcmdaMq1gXGNCtY36bVyqvZCUiTAr429eqixqvY1NaKQEpEmNV8bVFjdL2U+zB6DnmE0/OPOVIW8HBD6GhkFjVno94/q+w/i+G7GTlU4NTttf6XlsjCDslqJ66xM13TUTF9GB6W+m/wD4Ly5/d0X6Lxr9pfkTkzgvo7xbiHB+VuDcPrI5KcMnp6NkcjQZmAgEAEXBI+aoYP1ZTddClVtczS3v2Tsw5Ri5N9j07iaU1CzIwm+W+C8S49xim4Rwmkkq62peGRxMGSe5OgALkk4ABJwvc70s9D+VeWuXWRce4ZQ8b4rMA+pmqIRIxht+5GHDAHfZOTbAHT8X49jcHguf+Un2S7/t+ipTjTvfTovZ6b0sOsXWtSw2AJC95G+nHITdcncDHwoY/wBF+S9ZOTOU+GemnF6zh3LnCqSpiZGWTRUrGvbeRowQLjBPuk+P9eU5FsalU1zNLe/b0QyOFWRhKbl2Wz1dpYbWwtWkhwCQqqSI4Flq00WsLqLrTkrrCdNDe2FqU1PrGVyjgwDZa9FBcgka8JPfdopvqFJTWtcLSgphjF1dS097YsAtGCnxYBJ7r+pjQmynsNBC2IqXGRZCqPINaPnQFMZXNqQXOwieqtnQFMDK4FY0e6tQiQcuh1oVjQSVxg/3VrG5wrdcN9AbZJjbq5jbqLBf81exqaUVAZS2SY3wr2NUWN10C9lfsu+g7uYX03OfOVI5nB2kPoaGRuas7D3j+r7D+L4bsZOVVhVOy1/peWyMIOx6iS+y96Du5gfTc5c5UhbwgESUVDI3NWdh7wf6PsP4vhv3IYxsbGsY0Na0AAAWAshjGRsDGNDWtFgALAAKa854hxG3Ot+SfbwvQ0qqVa0ji8cfaP4PxLj/AKT8Q4Pwikkq62pnpmRRMGSf27CT2AABJJwACTheR1z5Kvi3yxroXR7xe1/RKcVOLizxp6GelXDvTvg4ll/Z1fHalgFVVWuGjf7OO+Q0HZ2Tk9APJiELeVlW5druue5MyEFCPLFdAX4n1xH3vSzjTf7Ef+KxftRfqvEHr3zrw+LhVTylSfdqayo+7/KHA/zYGhwcAbbcba6DJ6Xt8HosuzalWt6af9JlTiNsKsabk9bTR4EpYtY2tajhuRhLUkRJGNrao4bAC2V67kW6PMpvbGKWHIAC2qSDAAHzStJFq21tUUGha3lI8i7RrWi+mgwMLSpoPFvkilh1iy0oIcCwyk113UzRUyAds9yhaMcJI7eTtCp/MZo+YoCk0KIVjQhxieoMk0Z/BTauN7qxo0rUIg2zrB0V7GqLBhXMblMqagUmTYOo+SuY0KMYXsp9lX0KZzQKbnfm2BruCNeTRUbiD/LHNJBe8dIwQRbbiDfAzbyMirCpdtn9e2/RCEHZLSLfsu+gruYXU3OfOdIW8HaRJRUMjc1hGQ94P9H2H8Xw37lMYyONrGNDWNAAAwABpdjYyNjY2NDWNFgALAAaUl53xDiFudbzz7eF6GlVSrWkdQhCpBAQhCwwEIQRcWWGHin1l9TI+AMfwLgcjZOLvFpZRYilBH1eRodNnoD6/wAf7SaV0sz3SSPcXPc4klxJuSSdkle10nIXJ0sz5peXqCSR7i573R3LiTckk5J8r8t6rcocucM5GravhvBqSmqGOiDJI2AEXkaDb5EhdpwPjGHiKNFdb5pNJvp/tHLcX4fk3qVspLUeyPCFDDo9ltUkejZJ0cWgFs0kesLq8i041IboojcY2tyihwMJKhiBthbdJFrHhIsm0k0M0kWBcLRgjsLnaqpozYYyn4mY1gJNbM0kRa3uhMBoG8oQNm+U+WzRlTbnCiB0srGC1lfhE9LkybR5srGC9sKLB0VzBdX6a9gpMkwWA7JhgwB7qDG6/BXsFrdk2oqAyZNgv+a+iX2Vv+gXK3/pl/x5F88Ixpe9P2cfUDkfg/oty5w3ivN3BKKtgikEtPUV0bJGEzPNiCbjBBz0Sn6opnLFhypv+Xj9MNiSSm9vwedUL8cPVL03P/fPLn94xfqvD32hPXukpKB3LnIXEoqqrqI/+Z4nTvDmQMI/djcMF5GyMNGs65DC4Tl5lyqhB7ftdEvyXbL4QjzNjH2k/W5vBRUcn8n1QPFDdldWxm/8lGixhH9J0J/h0M6868oEu5U4Q5xLiaGG5OyfuBfNpt3uLnEucTckm5J7le+/K3qTyDDy3wuCbm/gzJY6OFr2GrYC0hgBBzvC6j6j+n1w/Foroi5Prtpb2+n+RTxcr5JycnpeDyGVx3bqvyQ9SuQHa5v4Mf8A6mfqvwnq96zcO4dwz/hvJ9fBXcQqWH71VC4Pjp2nFx0Lz0Ghs9AeXxeEZmTaqoVvb9p6LN2XVVBylJdBz1t9U4+XI5OA8AlbJxh7bSyjLaUEfV5Gh02egPk3l175OAcPkle58jqaMuc43JP3RcnyvR1jpZ5nTTSOllkcXPe8klxJuSScknuvbngHqDyZDwShgk5go2yR08bXNubghoB6eF0XH+ALBx6a6IuUuvM0t9en/PQpwOJK62crJJLwfuV+O9ZBf0+rx/ai/wARqZbz/wAnv/d49Sn4E/ovz/qTzRwDivJ1ZR0HE4J53uj+6xpybPaT07XXP4OJfDKrcoNJSXh+y3nZVEsaaU1vT8niOji0bLYo4jjGeySpI9BbNDFkG2l32RYedxiaFDFa1gtujjsBhI0UZwLLYpGaskORYSa8DNPHYd/1TbG2bb6qMLLAC2lcB0SyUtsxR2cA7BCmAemkIeyfKz5YtCtaMdcKLRaytYLJ7XHb0ehNk2BXMFs91BgVzBhNaawMpE2Nyr2NUGD6piNuR+KbU1gZSJxt8ZTEYyFWwaTEbeqa01AWyyJuk1EPCqibkJqJuk1pqQGTLYm6T9KwXHuloGXsLLTpo9XGdkK8opIq2T0M00d82WrSsN72vb8UpTMNh1P5rVpo7AAfBU7pJC62exqmZrHhadMy5FxnaVpo9C2FqUkdyO56pTfMXWT2PUUVgCtqii0kKSPIx8ltUkeAEkyZogh2kYMG3lbdFHYDHxWfRR5GP9dFt0jMDCR5MycR6ij1hbFJGAcDCSo2YHcfitWnZYX+QSS+e+hvRcwYHupgX0gD2UwAqTYWMQACFMC/wQo7DqB8r2C7sK5otaygwHfyVzACurprO0kybBZXsHttVsGfh1V7B3TimvsBk9FjG+ExG36quNqvYLlNaawMpFrG3t5TETbquMYTMQ6prTABJlkQueyaiblUxtsnadmRj/NNKoaQCUtDNNHkEjytSmjyCUrTMAAxdadMwW8rLZaWijbIZpmaPZalKzRStMzXba06ZhFupSu6YutkNU0eQtajYMHp+SSpWXIA+F1sUcYxhKL5lN9WP0UejZbFIzWP9kjSR2tjK2KOO5A6fkkeRPuTSNCiisBceVs0bMjF0hSR4C2KNmAkeRPewmh+kZ9PxWlEPugDsEpSttb3KeaMBKLZbZKMdsmBgKQGfC4AAEA5QCzGJLSFAlCzQbR8uGC/RXMGsKDG5VzBpdzRA6qTLI26v0VzBlQYMDqmGDATamHYBJk2C2UwwY0q2Nz8ExG0gj3TamAGTLYm+PimI22VcTdY0mYxb5JpTADJ6LYhkYT9Kw49krAxaNMw4x4Cv60itZLSHKZmvZadMzSTpo9H5LUpW6+F1QukLrZDlMzRt5K0qZpwlKZq06ZlyB8kqukL7JDtGzAJ6rZooySDZIUjNf6wtqijsBjO7JNkTBIfpI8gLYoozYG2/wAEhSM0AtujYLDp8EiyJhIodpWawtekZpIUjNe61qZuElvlsLFDtM3F7WTQVULbNA7q44H0S6T2wsUcJtpRLrA9kOP+ype+1ytJbDxWiTn2QlpJLE5QichPmR8zWDXsFcwW+SrYO+grmDNzjqu+ogdPJlrBkeEwwZF/mqoxpXxjSb0QASZbG3A90xEM/VVRjqmY24Ca0wAyZdELWTETc2+aqiCaibbCaVR0AkxinbkY19VqUzMgDp1SdMzA6kLTpW2ANlu2WkU7pDlMy9ugWnTMwEpTMuAT1WlTM1hK7pC62Q5TNwFq0TMjskaZmQAtekZgJTfIoye2P0cdyMLapGaws+iZgGy2KRmhZI75mRH6JlyD8ls0rMBI0UeBha1KzXlJMiYaKHqRmjbJ2tOnboaulKZv6LSpm/zr9gk90gsUMsHZdccoaMXXHnKqB4rXUrebBLTPtcK6U7SU78FGrjsk5FM8gHVCTqZN5Qrsa+gFzPnUwYCuZ8NoQu5pSOul2GIxkJhgQhNqEBkXxjV/mmYxlCE1pQCXYZiGk5A3INkITKvsAn2NOBuh8lp07cAIQqlzF9rNOnbke60qZusIQlVvkX2M1KSPXfS2KSPIHdCEnvZU8m1SNFhfW1rUbLkdx08oQkl7CRNqkZge11rUjL2IHhCEkyGwyNWmbkY0tCnFmXtklCEqt7holxUHHaEIKDx7C0xwVm1Txa18oQrdPcjZ2Misk2hCE1guhQk3s//Z" alt="Mideara Logo"/>
+        Mideara Network
+      </div>
+      <p class="footer-tagline">Bridging creativity and innovation from Pune to the world. Your brand's growth is our mission.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/mideara-network" target="_blank" class="social-btn" title="LinkedIn">in</a>
+        <a href="#" class="social-btn" title="Instagram">📸</a>
+        <a href="#" class="social-btn" title="Twitter">𝕏</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Graphic Design</a></li>
+        <li><a href="#">Video Editing</a></li>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Market Analysis</a></li>
+        <li><a href="#">Ed-Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#portfolio">Our Work</a></li>
+        <li><a href="#process">How We Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Location</div>
+      <ul class="footer-links">
+        <li><a href="#">Akurdi–Chinchwad</a></li>
+        <li><a href="#">Pune, Maharashtra</a></li>
+        <li><a href="#">India — 411026</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Mideara Network. All rights reserved.</span>
+    <span>Crafted with ♥ in Pune</span>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
